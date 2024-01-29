@@ -50,6 +50,9 @@ $description=get_field('description', 161);
 $lieu=get_field('lieu', 161);
 $date=get_field('date', 161);
 $lien=get_field('lien_google_maps', 161);
+print_r($lien);
+$keys = array_keys($lien);
+echo $lien['url'];
 ?>
 
 <div class="popup-overlay">
@@ -62,8 +65,7 @@ $lien=get_field('lien_google_maps', 161);
 		<div class="popup-details">
 			<div class="popup-address">
 				<p><b>Le lieu</b></p>
-				<?php echo $lieu; ?>
-				<a class="popup-link" href="<?php echo $lien; ?>" target="_blank">Voir sur Google Maps</a>
+				<a class="popup-link" href="<?php echo $lien['url']; ?>" target="<?php echo $lien['target']; ?>">Voir sur Google Maps</a>
 			</div>
 			<div class="popup-address">
 				<p><b>La date</b></p>
