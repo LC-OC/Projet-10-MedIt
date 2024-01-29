@@ -50,9 +50,6 @@ $description=get_field('description', 161);
 $lieu=get_field('lieu', 161);
 $date=get_field('date', 161);
 $lien=get_field('lien_google_maps', 161);
-print_r($lien);
-$keys = array_keys($lien);
-echo $lien['url'];
 ?>
 
 <div class="popup-overlay">
@@ -75,18 +72,11 @@ echo $lien['url'];
 		<p class="popup-informations">Vous souhaitez plus d'informations concernant cet événement ?</p>
 		<?php
 		// On insère le formulaire de demandes de renseignements
-		do_shortcode('[contact-form-7 id="910" title="Formulaire salon New York"]');
+		echo do_shortcode('[contact-form-7 id="910" title="Formulaire salon New York"]');
 		?>
 	</div>
 </div>
 
-<!-- Code pour fermer la popup -->
-
-<script>
-$('.popup-close').click(function(){
-	$(this).parent().hide();
-})
-</script>
 
 
 <!-- Ajout d'un bouton contact au menu -->
@@ -99,7 +89,7 @@ $('.popup-close').click(function(){
 function add_btn() {
 
 	// Code du bouton
-	$string .= '<a href="/contact" class="contact-btn">Nous contacter</a>';
+	$string .= '<a href="http://localhost/MedIt/contact/" class="contact-btn ">Nous contacter</a>';
 
 	// On retourne le code
 	return $string;

@@ -33,8 +33,15 @@ add_action( 'wp_enqueue_scripts', 'oceanwp_child_enqueue_parent_style' );
 
 
 function contact_btn( $items, $args ) {
-	$items .= '<a href="/contact" class="contact-btn">Nous contacter</a>';
+	$items .= '<a href="http://localhost/MedIt/contact/" class="contact-btn">Nous contacter</a>';
 	return $items;
 }
 
 add_filter( 'wp_nav_menu_items', 'contact_btn', 10, 2 );
+
+// ajout scripts
+function scripts() {
+    wp_enqueue_script( 'script', get_stylesheet_directory_uri() . '/scripts/script.js', array( 'jquery' ),'',true );
+}
+add_action( 'wp_enqueue_scripts', 'scripts' );
+
